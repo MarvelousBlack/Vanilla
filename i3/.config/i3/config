@@ -222,9 +222,9 @@ bar {
    tray_output primary
 	#tray_padding 0
 	colors {
-		statusline #eeeeee 
-		background #285477BB
-		separator #fcf0ef
+		statusline #000000
+		background #F4ADD96B
+		separator #2D2D2D
 		focused_workspace #636e88 #285de7 #dedfdg
 		active_workspace #556677 #234567 #56ef67
 		inactive_workspace #636d72 #2d2d2d #dedede
