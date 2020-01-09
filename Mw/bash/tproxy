@@ -1,0 +1,41 @@
+#!/bin/bash
+# /usr/local/bin/tproxy
+ 
+NET_CLS_DIR="/sys/fs/cgroup/net_cls/tproxy"
+NET_CLS_ID=88
+TP_TCP_PORT=1180
+TP_DNS_PORT=5300
+ 
+if [ ! -e ${NET_CLS_DIR} ]; then
+	sudo sh -c "mkdir -p ${NET_CLS_DIR}; \
+		chmod 0666 ${NET_CLS_DIR}/cgroup.procs; \
+		echo ${NET_CLS_ID} > ${NET_CLS_DIR}/net_cls.classid; \
+		iptables -t nat -D OUTPUT -p tcp \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_TCP_PORT}; \
+		iptables -t nat -D OUTPUT -p udp --dport 53 \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_DNS_PORT}; \
+		ip6tables -t nat -D OUTPUT -p tcp \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_TCP_PORT}; \
+		ip6tables -t nat -D OUTPUT -p udp --dport 53 \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_DNS_PORT}; \
+		iptables -t nat -I OUTPUT -p tcp \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_TCP_PORT}; \
+		iptables -t nat -I OUTPUT -p udp --dport 53 \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_DNS_PORT}; \
+		ip6tables -t nat -I OUTPUT -p tcp \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_TCP_PORT}; \
+		ip6tables -t nat -I OUTPUT -p udp --dport 53 \
+			-m cgroup --cgroup ${NET_CLS_ID} \
+			-j REDIRECT --to-ports ${TP_DNS_PORT};" 2>&1 2> /dev/null
+fi
+ 
+echo $$ > ${NET_CLS_DIR}/cgroup.procs
+ 
+exec "$@"
