@@ -11,7 +11,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id fcitx
 exec --no-startup-id udiskie -snA&
 exec --no-startup-id sleep 3 && exec feh --bg-fill background_desktop.png background_desktop.jpg
-exec --no-startup-id compton -CGb --backend glx --paint-on-overlay --glx-no-stencil  --unredir-if-possible 
+exec --no-startup-id picom -CGb  
 exec --no-startup-id nvidia-settings -a InitialPixmapPlacement=2
 exec --no-startup-id nvidia-settings -l
 exec --no-startup-id telegram-desktop
