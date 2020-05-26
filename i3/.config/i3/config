@@ -11,12 +11,12 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id fcitx
 exec --no-startup-id udiskie -snA&
 exec --no-startup-id sleep 3 && exec feh --bg-fill background_desktop.png background_desktop.jpg
-exec --no-startup-id picom -CGb  
+exec --no-startup-id picom -CGb 
 exec --no-startup-id nvidia-settings -a InitialPixmapPlacement=2
 exec --no-startup-id nvidia-settings -l
 exec --no-startup-id telegram-desktop
 exec --no-startup-id termite
-exec --no-startup-id sleep 10 && exec transset-df -n Telegram 0.85
+exec --no-startup-id sleep 10 && exec transset-df -n Telegram 0.8
 exec --no-startup-id kdeconnect-indicator&
 exec --no-startup-id klipper&
 exec --no-startup-id xss-lock -- i3lock -n -t --ignore-empty-password --no-unlock-indicator  -i background.png &
@@ -25,8 +25,8 @@ exec --no-startup-id xss-lock -- i3lock -n -t --ignore-empty-password --no-unloc
 focus_follows_mouse yes
 set $mod Mod4
 # Take a screenshot upon pressing $mod+print (select an area)
-bindsym --release Print exec --no-startup-id "import /home/marvelous/latest-screenshot.png && xclip -selection clipboard -t 'image/png' /home/marvelous/latest-screenshot.png"
-bindsym $mod+Print exec scrot
+bindsym --release Print exec --no-startup-id spectacle -rbn -o '/home/marvelous/latest-screenshot.png' && xclip -t 'text/uri-list' -selection clipboard <<<'file:///home/marvelous/latest-screenshot.png'
+bindsym $mod+Print exec spectacle
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -43,7 +43,6 @@ font pango:Droid Sans Mono 7.3
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
-
 #open chrome
 bindsym XF86HomePage exec chromium
 #open transset-df 0.9
@@ -52,16 +51,14 @@ bindsym --release $mod+m exec transset-df 0.8
 floating_modifier $mod
 
 # start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
 # thunar
 bindsym $mod+t exec thunar 
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="xfce4-terminal" --display-binary
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="termite" --display-binary
 
 # change focus
 bindsym $mod+h focus left
@@ -88,7 +85,6 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+semicolon split h
 bindsym $mod+g split h
 
 # split in vertical orientation
@@ -123,7 +119,7 @@ bindsym $mod+o border 1pixel
 bindsym $mod+b border toggle
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # Workspace names
 workspace "11" output DP-1
@@ -182,7 +178,6 @@ bindsym $mod+Shift+F10 move container to workspace 20
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -211,20 +206,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
-# i3bar toggle
-bindsym $mod+i bar mode toggle
 # finds out, if available)
+# i3bar toggle
+bindsym $mod+i bar hidden_state toggle
+
 bar {
         
+   # status_command i3status
    status_command ~/.config/i3/net-speed.sh
    i3bar_command i3bar -t 
+   mode dock
+   hidden_state hide
+   modifier $mod
    position top
    tray_output primary
-	#tray_padding 0
+   #tray_output eDP-1-1
 	colors {
 		statusline #000000
+		separator #2d2d2d 
 		background #F4ADD96B
-		separator #2D2D2D
 		focused_workspace #636e88 #285de7 #dedfdg
 		active_workspace #556677 #234567 #56ef67
 		inactive_workspace #636d72 #2d2d2d #dedede
@@ -259,9 +259,8 @@ for_window [class="mpv"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Genymotion"] floating enable
+for_window [class="Vlc"] floating enable
 for_window [class="VirtualBox"] floating enable
-for_window [class="shadowsocks-qt5"] floating enable
-for_window [class="netease-cloud-music"] floating enable
 
 
 assign [class="VirtualBox"] 10
