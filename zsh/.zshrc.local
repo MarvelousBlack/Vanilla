@@ -1,0 +1,36 @@
+# Created by newuser for 5.7
+eval $(thefuck --alias)
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+# do not correct any commands, I know what I do.
+setopt nocorrect
+setopt noautomenu
+#No share
+unsetopt share_history
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+export CHROOT=$HOME/Mw/buildroot
+export BAT_THEME="zenburn"
+export VISUAL="vim"
+export EDITOR="/usr/bin/vim"
+
+alias vi="vim"
+alias tmuxa="tmux -2 a"
+alias tmux="tmux -2"
+alias arch='uname -m'
+alias Syu='sudo pacman -Syu'
+alias Qi='pacman -Qi'
+alias Si='pacman -Si'
+alias Ss='pacman -Ss'
+
+echo -e "Megumi, Welcome back! "|cowsay -t -n
+
+if [ -n "$SSH_CLIENT" ]; then
+	:
+else
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_prompt_command
+fi
+fi
+
