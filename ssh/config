@@ -1,0 +1,6 @@
+Include archlinuxcn.config
+Include saltedfish.config
+
+Host aur.archlinux.org
+  IdentityFile ~/.ssh/id_rsa
+  User aur
