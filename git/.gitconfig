@@ -1,0 +1,8 @@
+[user]
+	email = i@megumifox.com
+	name = Megumi_fox
+	signingkey = 
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false

@@ -17,6 +17,7 @@ exec --no-startup-id termite
 exec --no-startup-id kdeconnect-indicator&
 exec --no-startup-id klipper&
 exec --no-startup-id xss-lock -- i3lock -n -t --ignore-empty-password --no-unlock-indicator  -i background.png &
+exec --no-startup-id bash /home/megumi/.config/i3/touchpad.sh
 #exec --no-startup-id pulseeffects -l MH755 --gapplication-service &
 
 focus_follows_mouse yes
@@ -217,7 +218,7 @@ bar {
    hidden_state hide
    modifier $mod
    position top
-   tray_output primary
+   tray_output eDP-1
    output primary
 	colors {
 		statusline #000000

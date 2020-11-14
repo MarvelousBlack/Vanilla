@@ -1,2 +1,2 @@
 # Vanilla
-My dotfiles
+My dotfiles (ShiraiYuyu)

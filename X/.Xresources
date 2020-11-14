@@ -1,0 +1,7 @@
+xterm*locale: true
+xterm.utf8: true
+xterm*utf8Title: true
+xterm*faceName: Monaco:pixelsize=14
+xterm*faceNameDoublesize: WenQuanYi Zen Hei:pixelsize=15
+Xcursor.size: 14
+
