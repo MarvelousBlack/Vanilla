@@ -27,6 +27,7 @@ bindsym --release Print exec --no-startup-id spectacle -rbn -c
 bindsym $mod+Print exec spectacle
 # X1C 2014 
 bindsym --release XF86LaunchA exec --no-startup-id spectacle -rbn -c
+bindsym $mod+XF86LaunchA exec spectacle
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -225,9 +226,9 @@ bar {
    tray_output eDP-1
    output primary
 	colors {
-		statusline #000000
-		separator #2d2d2d 
-		background #F4ADD96B
+		statusline #FFFFFF
+		separator #D2D2D2
+		background #1F2D3A99
 		focused_workspace #636e88 #285de7 #dedfdg
 		active_workspace #556677 #234567 #56ef67
 		inactive_workspace #636d72 #2d2d2d #dedede
