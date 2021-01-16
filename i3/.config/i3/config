@@ -9,6 +9,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id fcitx5
+exec --no-startup-id dunst&
 exec --no-startup-id udiskie -snA&
 exec --no-startup-id sleep 3 && exec feh --bg-fill background_desktop.png background_desktop.jpg
 exec --no-startup-id picom --experimental-backends -CGb 
@@ -224,11 +225,11 @@ bar {
    modifier $mod
    position top
    tray_output eDP-1
-   output primary
+   #output primary
 	colors {
 		statusline #FFFFFF
 		separator #D2D2D2
-		background #1F2D3A99
+		background #1F2D3A79
 		focused_workspace #636e88 #285de7 #dedfdg
 		active_workspace #556677 #234567 #56ef67
 		inactive_workspace #636d72 #2d2d2d #dedede
