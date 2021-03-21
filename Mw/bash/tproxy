@@ -36,6 +36,6 @@ if [ ! -e ${NET_CLS_DIR} ]; then
 			-j REDIRECT --to-ports ${TP_DNS_PORT};" 2>&1 2> /dev/null
 fi
  
-echo $$ > ${NET_CLS_DIR}/cgroup.procs
+echo $$ | sudo tee -a ${NET_CLS_DIR}/cgroup.procs > /dev/null
  
 exec "$@"
