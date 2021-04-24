@@ -64,8 +64,26 @@ bindsym $mod+t exec dolphin
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="termite" --display-binary
-# X1C 2014
-bindsym XF86Explorer exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="termite" --display-binary
+# X1C 2014 screen rotate
+mode "screen_rotate" {
+        # These bindings trigger as soon as you enter the rotate mode
+        bindsym h exec --no-startup-id xrandr --output eDP-1 --rotate left
+        bindsym j exec --no-startup-id xrandr --output eDP-1 --rotate normal
+        bindsym k exec --no-startup-id xrandr --output eDP-1 --rotate inverted
+        bindsym l exec --no-startup-id xrandr --output eDP-1 --rotate right
+
+        # same bindings 
+        bindsym Left exec --no-startup-id xrandr --output eDP-1 --rotate left
+        bindsym Down exec --no-startup-id xrandr --output eDP-1 --rotate normal
+        bindsym Up exec --no-startup-id xrandr --output eDP-1 --rotate inverted
+        bindsym Right exec --no-startup-id xrandr --output eDP-1 --rotate right
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym XF86Explorer mode "screen_rotate"
 
 # change focus
 bindsym $mod+h focus left
