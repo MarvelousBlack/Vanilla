@@ -71,6 +71,7 @@ mode "screen_rotate" {
         bindsym j exec --no-startup-id xrandr --output eDP-1 --rotate normal
         bindsym k exec --no-startup-id xrandr --output eDP-1 --rotate inverted
         bindsym l exec --no-startup-id xrandr --output eDP-1 --rotate right
+        bindsym r exec --no-startup-id feh --bg-fill background_desktop.png background_desktop.jpg
 
         # same bindings 
         bindsym Left exec --no-startup-id xrandr --output eDP-1 --rotate left
