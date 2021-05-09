@@ -1,0 +1,102 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+env:
+  TERM: alacritty
+  WINIT_HIDPI_FACTOR: '1.0'
+  WINIT_X11_SCALE_FACTOR: '1.0'
+
+window:
+  dynamic_title: true
+    
+crolling:
+    history: 10000
+    multiplier: 3
+
+font:
+  normal:
+    family: Monospace # should be "Menlo" or something on macOS.
+
+  bold:
+    family: Monospace # should be "Menlo" or something on macOS.
+
+  italic:
+    family: Monospace # should be "Menlo" or something on macOS.
+
+  size: 10.0
+
+draw_bold_text_with_bright_colors: true
+
+bell:
+  animation: EaseOutExpo
+  duration: 0
+
+background_opacity: 0.6
+
+selection:
+  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: false
+
+cursor:
+  style:
+    shape: Block
+    blinking: Off
+  unfocused_hollow: true
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: true
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+live_config_reload: true
+
+#debug:
+  # Display the time it takes to redraw each frame.
+  #render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  #persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - Off
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  #log_level: Warn
+
+  # Print all received window events.
+  #print_events: false
+
+colors:
+  primary:
+    background: '#030303'
+    foreground: '#ececec'
+
+
+  # Normal colors
+  normal:
+    black:   '#333333'
+    red:     '#ed1515'
+    green:   '#11d116'
+    yellow:  '#f67400'
+    blue:    '#1d99f3'
+    magenta: '#ff54ff'
+    cyan:    '#54ffff'
+    white:   '#eff0f1'
+
+ # Bright colors
+  bright:
+    black:   '#c9c740'
+    red:     '#c0392b'
+    green:   '#1cdc9a'
+    yellow:  '#fdbc4b'
+    blue:    '#3daee9'
+    magenta: '#ff00bb'
+    cyan:    '#bfff00'
+    white:   '#fcfcfc'
