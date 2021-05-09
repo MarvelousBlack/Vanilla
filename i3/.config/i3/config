@@ -13,7 +13,7 @@ exec --no-startup-id udiskie -snA&
 exec --no-startup-id sleep 3 && exec feh --bg-fill background_desktop.png background_desktop.jpg
 exec --no-startup-id picom --experimental-backends -CGb 
 exec --no-startup-id telegram-desktop
-exec --no-startup-id termite
+exec --no-startup-id alacritty
 exec --no-startup-id kdeconnect-indicator&
 exec --no-startup-id klipper&
 exec --no-startup-id xss-lock -- i3lock -n -t --ignore-empty-password --no-unlock-indicator  -i background.png &
@@ -48,7 +48,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -58,7 +58,7 @@ bindsym $mod+t exec dolphin
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="termite" --display-binary
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Droid Sans Mono-9'" --term="alacritty" --display-binary
 
 # change focus
 bindsym $mod+h focus left
