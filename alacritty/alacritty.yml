@@ -1,7 +1,7 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 
 env:
-  TERM: alacritty
+  TERM: xterm-256color
   WINIT_HIDPI_FACTOR: '1.0'
   WINIT_X11_SCALE_FACTOR: '1.0'
 
@@ -30,7 +30,7 @@ bell:
   animation: EaseOutExpo
   duration: 0
 
-background_opacity: 0.6
+background_opacity: 0.75
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -76,27 +76,27 @@ live_config_reload: true
 colors:
   primary:
     background: '#030303'
-    foreground: '#ececec'
-
+    foreground: '#c5c8c6'
 
   # Normal colors
   normal:
-    black:   '#333333'
-    red:     '#ed1515'
-    green:   '#11d116'
-    yellow:  '#f67400'
-    blue:    '#1d99f3'
-    magenta: '#ff54ff'
-    cyan:    '#54ffff'
-    white:   '#eff0f1'
+    black:   '#1d1f21'
+    red:     '#cc6666'
+    green:   '#b5bd68'
+    yellow:  '#f0c674'
+    blue:    '#81a2be'
+    magenta: '#b294bb'
+    cyan:    '#8abeb7'
+    white:   '#c5c8c6'
 
- # Bright colors
+  # Bright colors
   bright:
-    black:   '#c9c740'
-    red:     '#c0392b'
-    green:   '#1cdc9a'
-    yellow:  '#fdbc4b'
-    blue:    '#3daee9'
-    magenta: '#ff00bb'
-    cyan:    '#bfff00'
-    white:   '#fcfcfc'
+    black:   '#666666'
+    red:     '#d54e53'
+    green:   '#b9ca4a'
+    yellow:  '#e7c547'
+    blue:    '#7aa6da'
+    magenta: '#c397d8'
+    cyan:    '#70c0b1'
+    white:   '#eaeaea'
+ 
