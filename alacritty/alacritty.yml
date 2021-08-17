@@ -7,6 +7,7 @@ env:
 
 window:
   dynamic_title: true
+  opacity: 0.75
     
 crolling:
     history: 10000
@@ -30,7 +31,6 @@ bell:
   animation: EaseOutExpo
   duration: 0
 
-background_opacity: 0.75
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -99,4 +99,7 @@ colors:
     magenta: '#c397d8'
     cyan:    '#70c0b1'
     white:   '#eaeaea'
+  
+  transparent_background_colors: false
+
  
